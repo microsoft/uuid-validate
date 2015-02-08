@@ -1,0 +1,28 @@
+{
+  "name": "uuid-validate",
+  "version": "0.0.1",
+  "description": "Javascript validator for UUID versions 1 through 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/jasmine-node/bin/jasmine-node ValidatorSpec.js && node node_modules/jshint/bin/jshint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MCProHosting/uuid-validate.git"
+  },
+  "keywords": [
+    "uuid",
+    "validate",
+    "validator"
+  ],
+  "author": "Connor Peet <connor@connorpeet.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MCProHosting/uuid-validate/issues"
+  },
+  "homepage": "https://github.com/MCProHosting/uuid-validate",
+  "devDependencies": {
+    "jasmine-node": "^2.0.0",
+    "jshint": "^2.6.0"
+  }
+}
