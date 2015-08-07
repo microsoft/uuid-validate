@@ -38,7 +38,7 @@ function unparse(buf, offset) {
  * @return {Boolean}
  */
 module.exports = function (uuid, version) {
-    var parsedUuid, parsedVersion;
+    var parsedUuid;
     // If the uuid is a biffer, parse it...
     if (Buffer.isBuffer(uuid)) {
         parsedUuid = unparse(uuid);
@@ -60,13 +60,13 @@ module.exports = function (uuid, version) {
     }
 
     // Now extract the version...
-    if (typeof version === 'undefined') {
-        parsedVersion = extractVersion(parsedUuid);
-    } else {
-        parsedVersion = version;
+    if (version === undefined) {
+        version = extractVersion(parsedUuid);
+    } else if (extractVersion(parsedUuid) !== version) {
+        return false;
     }
 
-    switch (parsedVersion) {
+    switch (version) {
         // For certain versions, the checks we did up to this point are fine.
         case 1:
         case 2:
@@ -75,7 +75,7 @@ module.exports = function (uuid, version) {
         // For versions 3 and 4, they must specify a variant.
         case 3:
         case 4:
-            return ['8', '9', 'A', 'B'].indexOf(parsedUuid.charAt(19)) !== -1;
+            return ['8', '9', 'a', 'b'].indexOf(parsedUuid.charAt(19)) !== -1;
 
         default:
             // We should only be able to reach this if the consumer explicitly
@@ -93,5 +93,5 @@ module.exports = function (uuid, version) {
  * @return {Number}
  */
 var extractVersion = module.exports.version = function (uuid) {
-    return ~~uuid.charAt(14);
+    return uuid.charAt(14)|0;
 };
