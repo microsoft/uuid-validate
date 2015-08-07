@@ -1,6 +1,6 @@
 {
   "name": "uuid-validate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript validator for UUID versions 1 through 5",
   "main": "index.js",
   "scripts": {
