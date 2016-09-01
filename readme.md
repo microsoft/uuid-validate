@@ -1,6 +1,6 @@
 # uuid-validator
 
-[![Build Status](https://travis-ci.org/MCProHosting/uuid-validate.svg)](https://travis-ci.org/MCProHosting/uuid-validate)
+[![Build Status](https://travis-ci.org/WatchBeam/uuid-validate.svg)](https://travis-ci.org/WatchBeam/uuid-validate)
 
 Useful little package to validate UUIDs in Node.js. Usage:
 
