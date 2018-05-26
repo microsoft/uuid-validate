@@ -1,5 +1,5 @@
 // Regular expression used for basic parsing of the uuid.
-var pattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-4][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+var pattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 /**
  * Unparses a UUID buffer to a string. From node-uuid:
@@ -75,6 +75,7 @@ module.exports = function (uuid, version) {
         // For versions 3 and 4, they must specify a variant.
         case 3:
         case 4:
+        case 5:
             return ['8', '9', 'a', 'b'].indexOf(parsedUuid.charAt(19)) !== -1;
 
         default:
