@@ -75,6 +75,7 @@ module.exports = function (uuid, version) {
         // For versions 3 and 4, they must specify a variant.
         case 3:
         case 4:
+        case 5:
             return ['8', '9', 'a', 'b'].indexOf(parsedUuid.charAt(19)) !== -1;
 
         default:
