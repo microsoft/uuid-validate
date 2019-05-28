@@ -54,6 +54,11 @@ module.exports = function (uuid, version) {
 
     parsedUuid = parsedUuid.toLowerCase();
 
+    // Defined in RFC 4122, nil UUID is a special form of UUID with all zeros.
+    if (uuid === '00000000-0000-0000-0000-000000000000') {
+      return true;
+    }
+
     // All UUIDs fit a basic schema. Match that.
     if (!pattern.test(parsedUuid)) {
         return false;
