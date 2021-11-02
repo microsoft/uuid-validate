@@ -39,7 +39,7 @@ function unparse(buf, offset) {
  */
 module.exports = function (uuid, version) {
     var parsedUuid;
-    // If the uuid is a biffer, parse it...
+    // If the uuid is a buffer, parse it...
     if (Buffer.isBuffer(uuid)) {
         parsedUuid = unparse(uuid);
     }
